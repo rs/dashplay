@@ -4,14 +4,33 @@
         ".write": false,
         "urls": {
             "$path": {
+                ".read": true,
+                ".write": "newData.hasChildren() || !newData.exists()",
                 "delay": {
                     ".read": true,
                     ".write": true,
                     ".validate": "newData.isNumber() && newData.val() > 1000",
                 },
+                "flash": {
+                    ".read": true,
+                    ".write": "newData.hasChildren() || !newData.exists()",
+                    "severity": {
+                        ".read": true,
+                        ".write": true,
+                        ".validate": "newData.isString() && (newData.val() == 'alert' || newData.val() == 'warning' || newData.val() == 'info' || newData.val() == 'success')"
+                    },
+                    "message": {
+                        ".read": true,
+                        ".write": true,
+                        ".validate": "newData.isString()"
+                    },
+                    "$other": {
+                        ".write": false,
+                    }
+                },
                 "urls": {
                     ".read": true,
-                    ".write": "newData.hasChildren()",
+                    ".write": "newData.hasChildren() || !newData.exists()",
                     "0":  {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
                     "1":  {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
                     "2":  {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
@@ -32,6 +51,12 @@
                     "17": {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
                     "18": {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
                     "19": {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
+                    "$other": {
+                        ".write": false,
+                    }
+                },
+                "$other": {
+                    ".write": false,
                 }
             }
         }

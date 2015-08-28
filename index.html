@@ -23,6 +23,24 @@
         border: 0;
         margin: 0;
     }
+    #flash {
+        position: fixed;
+        top: -100px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        font-size: 3em;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: white;
+        padding: .5em 1em .5em 1em;
+    }
+    #flash.alert   {background-color: rgba(200, 0, 0, 0.9)}
+    #flash.warning {background-color: rgba(250, 150, 0, 0.9)}
+    #flash.info    {background-color: rgba(20, 20, 200, 0.9)}
+    #flash.success {background-color: rgba(0, 200, 0, 0.9)}
     #current_url {
         position: fixed;
         bottom: 10px;
@@ -100,6 +118,7 @@
 </head>
 <body>
     <div id="display"></div>
+    <div id="flash"></div>
     <div id="current_url"></div>
     <div id="settings">
         <div>Delay: <input id="delay"> seconds</div>
@@ -143,7 +162,7 @@
         restore();
     });
 
-    // Listen for each intermediate path components URLs
+    // Listen for each intermediate path components URLs and flash
     $.each(keys, function(_, key) {
         data.child(key).child('urls').on("value", function(snapshot) {
             var u = snapshot.val();
@@ -154,10 +173,31 @@
                 delete urls[key];
             }
             restore();
+            if (key == pathKey && !snapshot.hasChildren()) {
+                // Show settings when current path is empty
+                $('#settings').show();
+            }
         }, function (err) {
             console.log("Database read failed: " + err.code);
             restore();
         });
+
+        data.child(key).child('flash').on("value", function(snapshot) {
+            flash = snapshot.val();
+            if (flash && flash.message) {
+                $('#flash').text(flash.message).animate({'top': 0}, 500);
+                $('#flash').toggleClass('alert', flash.severity == 'alert')
+                $('#flash').toggleClass('warning', flash.severity == 'warning')
+                $('#flash').toggleClass('info', !flash.severity || flash.severity == 'info')
+                $('#flash').toggleClass('success', flash.severity == 'success')
+            } else {
+                $('#flash').animate({'top': '-100px'}, 500);
+            }
+        }, function (err) {
+            console.log("Database read failed: " + err.code);
+            restore();
+        });
+
     });
 
     $('#customize').on('click', function() {
@@ -253,11 +293,6 @@
             });
         });
         $('#urls').scrollTop($('#urls').prop("scrollHeight"));
-        setTimeout(function() {
-            if (!urls[pathKey] || urls[pathKey].length == 0) {
-                $('#settings').show();
-            }
-        });
     }
 
     function restart() {
