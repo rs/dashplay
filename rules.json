@@ -1,0 +1,20 @@
+{
+    "rules": {
+        ".read": false,
+        ".write": false,
+        "urls": {
+            "$path": {
+                "delay": {
+                    ".read": true,
+                    ".write": true,
+                    ".validate": "newData.isNumber() && newData.val() > 1000",
+                },
+                "urls": {
+                    ".read": true,
+                    ".write": true,
+                    ".validate": "newData.hasChildren()",
+                }
+            }
+        }
+    }
+}

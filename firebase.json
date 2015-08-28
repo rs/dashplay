@@ -1,0 +1,14 @@
+{
+  "firebase": "dashplay",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "rewrites": [{
+        "source": "**",
+          "destination": "/index.html"
+  }],
+  "rules": "rules.json"
+}
