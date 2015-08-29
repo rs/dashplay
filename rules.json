@@ -9,7 +9,7 @@
                 "delay": {
                     ".read": true,
                     ".write": true,
-                    ".validate": "newData.isNumber() && newData.val() > 1000",
+                    ".validate": "newData.isNumber() && newData.val() > 1000"
                 },
                 "flash": {
                     ".read": true,
@@ -25,7 +25,7 @@
                         ".validate": "newData.isString()"
                     },
                     "$other": {
-                        ".write": false,
+                        ".validate": false
                     }
                 },
                 "urls": {
@@ -52,11 +52,11 @@
                     "18": {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
                     "19": {".validate": "newData.isString() && newData.val().matches(/^https?:\\/\\/[a-z0-9.-]+\\.[a-z]+/i)"},
                     "$other": {
-                        ".write": false,
+                        ".validate": false
                     }
                 },
                 "$other": {
-                    ".write": false,
+                    ".validate": false
                 }
             }
         }

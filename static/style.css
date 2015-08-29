@@ -1,0 +1,168 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family:Arial,sans-serif;
+}
+
+/* fix bs3 horizontal scrollbar bug */
+.row { margin: 0; padding: 0 }
+
+
+/* use special fonts in certain elements */
+h1, h2, h3, h4, .lead, .btn, .navbar a {
+    text-transform:uppercase;
+    font-family:'Voltaire',Arial,sans-serif;
+    letter-spacing:2px;
+}
+
+.big {
+    font-size:50px;
+}
+
+.icon-bar {
+    background-color:#fff;
+}
+
+.header .btn-lg {
+    margin: 20px 0 50px 0;
+    font-size:28px;
+    border-color:#eeeeee;
+    padding:15px;
+    background-color:transparent;
+    color:#ffffff;
+}
+
+.header .btn-lg:hover {
+    background-color:#eeeeee;
+    color:#777777;
+}
+
+.navbar a {
+    color:#fff;
+}
+
+.navbar li a:hover, .navbar li.active {
+    background-color: rgba(100, 150, 150, .95);
+}
+
+.header {
+    margin-top: 50px;
+}
+
+.header img {
+    margin: 30px 0 30px 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+.header .image {
+    text-align: right;
+}
+
+.header .text {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.header .title {
+    font-size: 5em;
+    -webkit-text-stroke: 1px rgba(f, f, f, 0.1);
+    color: #fff;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.header .lead {
+    color: rgba(100, 150, 150, .95);
+    font-size: 1.5em;
+}
+
+.alt {
+    color: #fff;
+    background-color: rgba(35, 40, 40, .95);
+}
+
+.alt code {
+    color: #ccc;
+    background-color: #3f3f3f;
+    border: 1px solid #2a2a2a;
+}
+
+.section {
+    padding: 2em 0 3em 0;
+}
+
+.section h2.title {
+    font-size: 3.5em;
+    margin-bottom: 1.5em;
+}
+
+.section.alt h2.title {
+    color: #fff;
+}
+
+
+.feature-item {
+    margin-bottom: 3em;
+}
+
+.feature-item i.fa-play {
+    padding-left: 13px;
+}
+
+.feature-item i.icon {
+    border: 3px solid #344;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 56px;
+    width: 140px;
+    height: 140px;
+    line-height: 130px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.feature-item i.icon:hover {
+    font-size: 68px;
+}
+
+.feature-item .title {
+    font-size: 2em;
+}
+
+footer {
+    padding: 100px 0;
+}
+
+a.icon {
+    font-size: 3em;
+    color: black;
+    text-decoration: none;
+}
+
+@media all and (max-device-width: 400px){
+    body {
+        font-size: 12px;
+    }
+    .header .title {
+        font-size: 3em;
+    }
+    .section h2.title {
+        font-size: 1.5em;
+    }
+    .feature-item i.fa-play {
+        padding-left: 6px;
+    }
+    .feature-item i.icon {
+        border: 2px solid #344;
+        font-size: 20px;
+        width: 70px;
+        height: 70px;
+        line-height: 65px;
+    }
+    .feature-item i.icon:hover {
+        font-size: 68px;
+    }
+}

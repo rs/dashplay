@@ -1,14 +1,21 @@
 {
-  "firebase": "dashplay",
-  "public": ".",
-  "ignore": [
-    "firebase.json",
-    "**/.*",
-    "**/node_modules/**"
-  ],
-  "rewrites": [{
-        "source": "**",
-          "destination": "/index.html"
-  }],
-  "rules": "rules.json"
+    "firebase": "dashplay",
+    "public": ".",
+    "ignore": [
+        "firebase.json",
+        "server.js",
+        "api.go",
+        "app.yaml"
+    ],
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/index.html"
+        },
+        {
+            "source": "**",
+            "destination": "/dashplay.html"
+        }
+    ],
+    "rules": "rules.json"
 }
