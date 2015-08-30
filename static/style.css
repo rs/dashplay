@@ -146,6 +146,12 @@ code, pre {
     font-size: 2em;
 }
 
+.feature-item .text {
+    display: block;
+    min-height: 70px;
+    margin-bottom: 2em;
+}
+
 footer {
     padding: 100px 0;
 }
@@ -156,7 +162,7 @@ a.icon {
     text-decoration: none;
 }
 
-@media all and (max-device-width: 400px){
+@media all and (max-width: 400px){
     body {
         font-size: 12px;
     }
