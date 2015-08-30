@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     height: 100%;
     width: 100%;
     font-family:Arial,sans-serif;
@@ -16,10 +15,49 @@ h1, h2, h3, h4, .lead, .btn, .navbar a {
     letter-spacing:2px;
 }
 
+.anchor{
+  display: block;
+  height: 50px;
+  margin-top: -50px;
+  visibility: hidden;
+}
+
 .big {
     font-size:50px;
 }
 
+code, pre {
+    color: #033;
+    background-color: rgba(220, 240, 240, .85);
+    border: 1px solid rgba(100, 150, 150, .5);
+}
+
+.alt {
+    color: #fff;
+    background-color: rgba(35, 40, 40, .95);
+}
+
+.alt2 {
+    color: #033;
+    background-color: rgb(100, 150, 150);
+}
+
+.alt2 a, .alt2 a:visited {
+    color: #fff;
+}
+
+.section {
+    padding: 2em 0 3em 0;
+}
+
+.section h2.title {
+    font-size: 3.5em;
+    margin-bottom: 1.5em;
+}
+
+.section.alt h2.title {
+    color: #fff;
+}
 .icon-bar {
     background-color:#fff;
 }
@@ -79,31 +117,6 @@ h1, h2, h3, h4, .lead, .btn, .navbar a {
     font-size: 1.5em;
 }
 
-.alt {
-    color: #fff;
-    background-color: rgba(35, 40, 40, .95);
-}
-
-.alt code {
-    color: #ccc;
-    background-color: #3f3f3f;
-    border: 1px solid #2a2a2a;
-}
-
-.section {
-    padding: 2em 0 3em 0;
-}
-
-.section h2.title {
-    font-size: 3.5em;
-    margin-bottom: 1.5em;
-}
-
-.section.alt h2.title {
-    color: #fff;
-}
-
-
 .feature-item {
     margin-bottom: 3em;
 }
@@ -112,8 +125,9 @@ h1, h2, h3, h4, .lead, .btn, .navbar a {
     padding-left: 13px;
 }
 
-.feature-item i.icon {
-    border: 3px solid #344;
+.feature-item i.icon, .feature-item a:visited i.icon {
+    color: #033;
+    border: 3px solid #033;
     border-radius: 50%;
     display: inline-block;
     font-size: 56px;

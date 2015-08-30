@@ -37,8 +37,9 @@ TODO:
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li><a href="#features">Features</a></li>
+                    <li><a href="#doc">Documentation</a></li>
                     <li><a href="#api">API</a></li>
-                    <li><a href="#doc">Docuentation</a></li>
+                    <li><a href="#support">Support</a></li>
                 </ul>
             </div>
         </div>
@@ -61,13 +62,14 @@ TODO:
             </div>
             <div class="row">
                 <div class="text-center">
-                    <a class="btn btn-default btn-lg new-dashboard">New Dashboard</a>
+                    <a class="btn btn-default btn-lg new-dashboard">Create a DashPlay</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="features" class="section">
+    <span class="anchor" id="features"></span>
+    <div class="section alt2">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -76,68 +78,110 @@ TODO:
             </div>
             <div class="row feature-item">
                 <div class="col-md-2">
-                    <i class="icon fa fa-play"></i>
+                    <a href="#doc"><i class="icon fa fa-play"></i></a>
                 </div>
                 <div class="col-md-4">
-                    <h4 class="title">Slidshow</h4>
+                    <h4 class="title">Slideshow</h4>
                     <p>
-                        Define the list of dashboard URL and a delay, and DashPlay will automatically cicle between those URLs.
-                        Next URL is preloaded in background to ensure a smooth transition between dashboards.
+                        Define the list of dashboard URLs and a delay, and DashPlay will automatically cicle between those URLs.
+                        Next URL is preloaded in background to ensure a smooth transitions.
                     </p>
                 </div>
                 <div class="col-md-2">
-                    <i class="icon fa fa-wifi"></i>
+                    <a href="#doc"><i class="icon fa fa-wifi"></i></a>
                 </div>
                 <div class="col-md-4">
                     <h4 class="title">Remote Control</h4>
-                    <p>Set the URL of you dashplay on your TV once, and change their settings from the confort of you laptop.</p>
+                    <p>
+                        Point your screens' browser to your dashplay URL once. Change its settings later from the confort of you laptop,
+                        and see those changes applied on all your screens in real-time.
+                    </p>
                 </div>
             </div>
             <div class="row feature-item">
                 <div class="col-md-2">
-                    <i class="icon fa fa-exclamation-triangle"></i>
+                    <a href="#flash"><i class="icon fa fa-exclamation-triangle"></i></a>
                 </div>
                 <div class="col-md-4">
                     <h4 class="title">Flash Messages</h4>
                     <p>
-                        A flash banner can be shown on top of the screen when something important happen.
+                        A flash banner can be shown on top of the screen when something important happen like a rollout or a maintaince.
                     </p>
                 </div>
                 <div class="col-md-2">
-                    <i class="icon fa fa-sitemap"></i>
+                    <a href="#group"><i class="icon fa fa-sitemap"></i></a>
                 </div>
                 <div class="col-md-4">
                     <h4 class="title">Group Management</h4>
                     <p>
-                        You can easily manage groups of different dashplays sharing same set of base dashboards added their own or getting the same flashs.
+                        You can easily manage groups of different dashplays sharing same set of base dashboards in addition to their own.
+                        Use groups to broadcast flash message to all your dashplays sharing a common root dashplay.
                     </p>
                 </div>
             </div>
             <div class="row feature-item">
                 <div class="col-md-2">
-                    <i class="icon fa fa-cloud"></i>
+                    <a href="#api"><i class="icon fa fa-cloud"></i></a>
                 </div>
                 <div class="col-md-4">
                     <h4 class="title">API</h4>
                     <p>
-                        Set flash banners, setup dashboards URLs, change delays from the API.
+                        Configure your dashplays and send flash info programatically using our REST API.
                     </p>
                 </div>
                 <div class="col-md-2">
-                    <i class="icon fa fa-usd"></i>
+                    <a href="https://github.com/rs/dashplay"><i class="icon fa fa-usd"></i></a>
                 </div>
                 <div class="col-md-4">
                     <h4 class="title">Free &amp; Open Source</h4>
                     <p>
                         DashPlay is free and open-source. Not account is required to use it and you may host
-                        it yourself by forking on <a href="https://github.com/rs/dashplay">GitHub repository</a>.
+                        it yourself or improve it by forking it on <a href="https://github.com/rs/dashplay">GitHub repository</a>.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="api" class="section alt">
+    <span class="anchor" id="doc"></span>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="big title">Documentation</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>DashPlay Creation</h4>
+                    <p>
+                        DashPlay is an easy way to manage screens cycling on a set of dashboards. You can create as many DashPlay URLs as you want, and organize them the way you want. You may want to reuse the same DashPlay URL over several screens so they all display the same dashboards, or you may want to have a different DashPlay URL for each of them.
+                    </p>
+                    <p>
+                        To create a DashPlay URL, append any unused arbitrary string to the <code>https://dashplay.io/&lt;your-dashplay-name&gt;</code>. DashPlay URLs are created on the fly. The main purpose of a DashPlay is to cycle over a set of dashboard URLs. So the first thing you have to do on a new DashPlay is to setup the list of URLs to cycle on. Click on the cog (<i class="fa fa-cog"></i>) button on the lower right of the screen to open the settings panel, and start adding URLs. The page should start loading the first URL and after a moment, transition to the next and so on. You can then set this URL on your TVs right away. Any future change to the settings of this page will be replicated on all TVs displaying it in real-time.
+                    </p>
+                    <br>
+                    <span class="anchor" id="group"></span>
+                    <h4>Group Management</h4>
+                    <p>
+                        DashPlay let you organise your DashPlay URLs hiearchically by using forward slashes (<code>/</code>) in the URLs you are choosing. For instance if you have a set of dashboard for you company ACME, you may organize them as follow: <code>/acme/serviceA/screen1</code>.
+                    </p>
+                    <p>
+                        DashPlay is able to do usefull thing with such hierarchy. If, for instance, you add a set of URLs on <code>/acme/serviceA</code>, the dashplay at <code>/acme/serviceA/screen1</code> will automatically inherit those URLs. This let you create slighy different version of the same DashPlay.
+                    </p>
+                    <br>
+                    <span class="anchor" id="flash"></span>
+                    <h4>Flash Info</h4>
+                    <p>
+                        In addition to URLs cycling, DashPlay is also able to display some important flash message in a top banner. This can be useful to inform people across the company of events such a rollout or maintainance in progress. The hability to manage DashPlay URLs in heararchy is very powerful when combined with flash messages. Taking our previous example, any flash message set on <code>/acme</code> will be also set on all screens of all services (children in the hiearchy). See the <a href="#api">API</a> section to see how to send flash messages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <span class="anchor" id="api"></span>
+    <div class="section alt">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -192,11 +236,28 @@ $ curl -iX PATCH http://api.dashplay.io/foo \
         </div>
     </div>
 
-    <div id="doc" class="section">
+    <span class="anchor" id="support"></span>
+    <div class="section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2 class="big title">Documentation</h2>
+                    <h2 class="title">Support</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Some URLs won't load</h4>
+                    <p>
+                        Open the Developer Console and look for errors. Most common issue is due to the presence of
+                        the <code>X-Frame-Options</code> HTTP header set to <code>DENY</code>.
+                    </p>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <h4>I have a feature request</h4>
+                    <p>
+                        Great! Contact us at <code>support at dashplay dot io</code>.
+                    </p>
                 </div>
             </div>
         </div>
