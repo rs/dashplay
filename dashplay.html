@@ -72,6 +72,7 @@
         background-color: #ccc;
     }
     #settings {
+        font-size: 1.2em;
         position: fixed;
         display: none;
         bottom: 40px;
@@ -83,13 +84,22 @@
     }
     #settings input {
         margin-bottom: .3em;
-        font-size: 1.2em;
+        font-size: 1em;
         padding: .2em;
     }
     #settings .tv-link {
         position: absolute;
         top: 15px;
         right: 15px;
+    }
+    #flash-severity {
+        font-size: 1em;
+        padding: .3em;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    #flash-message {
+        width: 350px;
     }
     #urls {
         min-height: 10em;
@@ -131,6 +141,15 @@
     <div id="current_url"></div>
     <div id="settings">
         <div>Delay: <input id="delay"> seconds</div>
+        <div>Flash Info:
+            <select id="flash-severity">
+                <option value="info">info</option>
+                <option value="success">success</option>
+                <option value="warning">warning</option>
+                <option value="alert">alert</option>
+            </select>
+            <input id="flash-message" placeholder="Flash info message">
+        </div>
         <a class="tv-link" href="#">TV mode</a>
         <div id="urls"></div>
         <input type="text" id="add" class="url" placeholder="Enter a dashboard URL">
@@ -200,13 +219,15 @@
             flash = snapshot.val();
             if (flash && flash.message) {
                 $('#flash').text(flash.message).addClass('open');
-                $('#flash').toggleClass('alert', flash.severity == 'alert')
-                $('#flash').toggleClass('warning', flash.severity == 'warning')
                 $('#flash').toggleClass('info', !flash.severity || flash.severity == 'info')
                 $('#flash').toggleClass('success', flash.severity == 'success')
+                $('#flash').toggleClass('warning', flash.severity == 'warning')
+                $('#flash').toggleClass('alert', flash.severity == 'alert')
             } else {
                 $('#flash').removeClass('open');
             }
+            $('#flash-severity').val(flash.severity)
+            $('#flash-message').val(flash.message);
         }, function (err) {
             console.log("Database read failed: " + err.code);
             restore();
@@ -264,6 +285,16 @@
             } else {
                 $(this).addClass('error');
             }
+        }
+    });
+
+    $('#flash-severity').on('change', function(e) {
+        data.child(pathKey).child('flash/severity').set($('option:selected', this).val());
+    });
+
+    $('#flash-message').on('keyup', function(e) {
+        if (e.which == 13) {
+            data.child(pathKey).child('flash/message').set($(this).val());
         }
     });
 
