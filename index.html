@@ -7,23 +7,21 @@
     <meta name="description" content="Easy dashboard screen management.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Voltaire">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link href="static/style.css" rel="stylesheet">
+    <style>
+    @font-face {
+        font-family: 'Voltaire';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Voltaire'), url(static/voltaire.ttf) format('truetype');
+    }
+    </style>
 </head>
 <body>
-<!--
-TODO:
-- reference good framework to buid dashboards like dashing
-    - http://shopify.github.io/dashing/
-    - http://grafana.org
-- reference raspery project to do host a browser on a pi
-    - http://jptoto.jp/category/business-2/
-- add a feedback tool to propose improvement or report bugs
--->
     <div class="navbar navbar-fixed-top alt" data-spy="affix" data-offset-top="1000">
         <div class="container">
             <div class="navbar-header">
@@ -245,19 +243,36 @@ $ curl -iX PATCH http://api.dashplay.io/foo \
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <h4>I don't have a dashboard, how to create them?</h4>
+                    <p>
+                        <a href="http://shopify.github.io/dashing">Dashing is a popular framework to create custom dashboards. For moving things, <a href="http://grafana.org">Grafana</a> is also popular. Also some commercial product like <a href="http://www.tableau.com/products/online-cloud-analytics">Tableau Online</a> and the excellent <a href="https://www.datadoghq.com/product/">Datadog</a> offer such capabilities.
+                    </p>
+                    <br>
+                </div>
+                <div class="col-md-6">
+                    <h4>How can I add a browser to my TV?</h4>
+                    <p>
+                        The most popular and cheap solution is to plug a Raspberry Pi with a chromium in kiok mode on the HDMI port of your TVs. Check this project for more info <a href="http://jptoto.jp/category/business-2/">projects</a>.
+                    </p>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
                     <h4>Some URLs won't load</h4>
                     <p>
                         Open the Developer Console and look for errors. Most common issue is due to the presence of
                         the <code>X-Frame-Options</code> HTTP header set to <code>DENY</code>.
                     </p>
+                    <br>
                 </div>
-                <br>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <h4>I have a feature request</h4>
                     <p>
-                        Great! Contact us at <code>support at dashplay dot io</code>.
+                        Great! Contact us at <code>support at dashplay dot io</code> or open a ticket on <a href="https://github.com/rs/dashplay/issues">GitHub</a>.
                     </p>
+                    <br>
                 </div>
             </div>
         </div>

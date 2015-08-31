@@ -17,8 +17,8 @@ h1, h2, h3, h4, .lead, .btn, .navbar a {
 
 .anchor{
   display: block;
-  height: 50px;
-  margin-top: -50px;
+  height: 51px;
+  margin-top: -51px;
   visibility: hidden;
 }
 
@@ -85,7 +85,7 @@ code, pre {
 }
 
 .header {
-    margin-top: 50px;
+    margin-top: 51px;
 }
 
 .header img {
