@@ -382,15 +382,15 @@
             $('#current_url').text(url).fadeIn(500).delay(2000).fadeOut(500);
         }
         next = setTimeout(function() {
-            if (current.length != 0) {
+            if (current.length != 0 && mergedURLs.length > 1) {
+                // Do not show the URL for the first page (done earlier) or if we are
+                // cycling (reloading) on a single page
                 $('#current_url').hide().text(url).fadeIn(500).delay(2000).fadeOut(500);
             }
             iframe.animate({opacity: 1}, 500, function() {
                 current.attr('src', 'about:blank'); // Try to release memory
                 current.remove();
-                if (mergedURLs.length > 1) { // Do not switch over the same URL
-                    loadNext();
-                }
+                loadNext();
             });
         }, delay )
     }
