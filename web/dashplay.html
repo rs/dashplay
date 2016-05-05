@@ -87,7 +87,7 @@
         font-size: 1em;
         padding: .2em;
     }
-    #settings .tv-link {
+    #settings .links {
         position: absolute;
         top: 15px;
         right: 15px;
@@ -159,7 +159,11 @@
             </select>
             <input id="flash-message" placeholder="Flash info message">
         </div>
-        <a class="tv-link" href="#">TV mode</a>
+        <div class="links">
+            <a class="pause-link" href="">Pause</a>
+            &nbsp;&nbsp;
+            <a class="tv-link" href="#">TV mode</a>
+        </div>
         <div id="urls"></div>
         <input type="text" id="add" class="url" placeholder="Enter a dashboard URL">
     </div>
@@ -169,6 +173,7 @@
     <script>
     var path = document.location.pathname.substr(1);
     var tvMode = path[path.length-1] == '+' && !!(path = path.substr(0, path.length-1));
+    var pause = false;
     var data = new Firebase('https://dashplay.firebaseio.com/urls');
     var urls = {};
     var urlre = /^https?:\/\/.+\..+/;
@@ -315,6 +320,19 @@
         e.preventDefault();
     });
 
+    $('.pause-link').on('click', function(e) {
+        pause = !pause;
+
+        if (!pause) {
+            e.target.text = 'Pause';
+            loadNext();
+        } else {
+            e.target.text = 'Unpause';
+        }
+
+        e.preventDefault();
+    });
+
     function save() {
         $("#settings *").prop('disabled', true);
         data.child(pathKey).child('urls').set(urls[pathKey] || []);
@@ -371,6 +389,11 @@
             $('#display').empty();
             return;
         }
+
+        if (pause) {
+            return;
+        }
+
         var current = $('#display iframe');
         var url = mergedURLs[currentURL++ % mergedURLs.length];
         var iframe = $('<iframe>').attr('src', url);
