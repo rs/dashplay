@@ -4,8 +4,8 @@ dispatch:
   - url: "*/favicon.ico"
     module: default
 
-  - url: "dashplay.io/"
+  - url: "dashplay.io/*"
     module: default
 
-  - url: "api.dashplay.io/"
+  - url: "api.dashplay.io/*"
     module: api
