@@ -188,7 +188,7 @@
 
     // Reload the whole page every day so the browser to prevent
     // browser from dying under memory pressure.
-    setTimeout(function() {location.reload()}, 86400000);
+    setInterval(function() {location.reload()}, 86400000);
 
     var keys = [];
     for (var i = 0, pos = 0, t = path.length; pos != -1; i++) {
